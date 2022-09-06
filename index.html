@@ -17,7 +17,24 @@
     <link rel="stylesheet" href="boot.css" />
     <link rel="icon" href="Logo (2).jpg"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        body{
+            background-color:white;
+            color:black
+        }
+        .mydark{
+            background-color:black;
+            color:white
+        }
+    </style>
+    <script>
+        const changeMode=()=>{
+            let mybody = document.body;
+            mybody.classList.toggle('mydark')
+        }
+    </script>
 </head>
+<body>
 <header>
     <div id="brand">
         Vision Rays
@@ -38,7 +55,7 @@
 
     </div>
 </header>
-<body>
+    <span class="glyphicon glyphicon-certificate" onClick="changeMode()"></span>
     <div id="searchbox">
         <input type="text" name="box" placeholder="What are you looking for">
     </div>
@@ -142,7 +159,7 @@
     <div class="Quicksubheading">
         #Featured
     </div>
-    <div class="featured">
+     <div class="featured">
         <div class="tileComponent1">
             <img src="Featured.jpg" alt="featured1" />
         </div>
