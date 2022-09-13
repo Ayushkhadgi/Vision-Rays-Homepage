@@ -15,6 +15,7 @@
         integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="boot.css" />
+    <script src="vision.js"></script>
     <link rel="icon" href="Logo (2).jpg"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <style>
@@ -55,6 +56,15 @@
 
     </div>
 </header>
+<div id="coupon">
+
+    <div id="cross">
+    <button onClick="closeCoupon()">&times;</button>
+    </div>
+</div>
+    <div id="darkmode">
+    <h2>Light Dark Mode</h2>
+    <p>We Are working on dark light mode</p>
     <span class="glyphicon glyphicon-certificate" onClick="changeMode()"></span>
     <div id="searchbox">
         <input type="text" name="box" placeholder="What are you looking for">
@@ -184,7 +194,6 @@
             <img src="Featured5.jpg" alt="featured5" />
         </div>
     </div>
-</div>
     <footer>
         <div class="ok">
         <h3> &copy; Vision Rays</h3>
@@ -207,7 +216,11 @@
                 <li>About Us</li>
             </ul>
         </div>
+        </div>
     </footer>
+    <script>
+        window.onload=loadCoupon()
+    </script>
     <!-- </div>
             <div class="tileContainer">
                 <div class="tileComponent1">
