@@ -40,6 +40,45 @@
     <div id="brand">
         Vision Rays
     </div>
+    <div id="darkmode">
+        <span class="glyphicon glyphicon-sunglasses" onClick="changeMode()" style="font-size: x-large;"></span>
+    </div>
+    <div class="loca">
+    <span onclick="geolocation()"><span class="glyphicon glyphicon-map-marker" style="font-size: medium; margin-top: -20px; margin-right: 150px;"></span></span>
+    <p id="out"></p>
+    <p id="location"></p>
+    <p id="weather"></p>
+    </div>
+    <script>
+        let x = document.getElementById('out');
+        let y = document.getElementById('location');
+        let z = document.getElementById('weather');
+        function geolocation(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition)
+            }else{
+                x.innerText= "Geo Not Supported"
+            }
+        }
+
+        function showPosition(data){
+            console.log(data)
+            let lat = data.coords.latitude;
+            let long = data.coords.longitude;
+            const url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${long}&mode=json&units=metric&cnt=5&appid=fbf712a5a83d7305c3cda4ca8fe7ef29`;
+            //api calling
+            fetch(url,{method:'GET'})
+            //return promise
+            .then((res) => res.json())
+            // resolve the promise
+            .then((data) => {
+            
+                y.innerText = `${data.city.name} `
+                z.innerText = `${data.list[0].temp.day} °C `
+                
+            })
+        }
+    </script>
     <div id="social">
         <a href="https://www.facebook.com/profile.php?id=100008443149564" target="_blank">
             <img src="facebook.png" alt="fb" class="socialimg" />
@@ -62,10 +101,6 @@
     <button onClick="closeCoupon()">&times;</button>
     </div>
 </div>
-    <div id="darkmode">
-    <h2>Light Dark Mode</h2>
-    <p>We Are working on dark light mode</p>
-    <span class="glyphicon glyphicon-certificate" onClick="changeMode()"></span>
     <div id="searchbox">
         <input type="text" name="box" placeholder="What are you looking for">
     </div>
